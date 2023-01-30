@@ -13,9 +13,11 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <ItemsProvider>
-        <App />
-      </ItemsProvider>
+      <userContext>
+        <ItemsProvider>
+          <App />
+        </ItemsProvider>
+      </userContext>
     </BrowserRouter>
   </React.StrictMode>
 );
