@@ -14,6 +14,7 @@ function App() {
         <Route path="/items" component={Items} />
         <Route exact path="/"></Route>
       </Switch>
+      <Auth />
     </div>
   );
 }
