@@ -3,13 +3,21 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
 import './Auth.css';
 import { useState } from 'react';
+import { authUser } from '../../services/auth.js';
+import { type } from '@testing-library/user-event/dist/type/index.js';
+import { setUser } from '../../context/UserContext.js';
 
 export default function Auth() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const submitAuth = async () => {
-    // TODO
+    try {
+      const user = await authUser(email, password, type);
+      setUser(user);
+    } catch (e) {
+      console.error(e);
+    }
   };
 
   return (
